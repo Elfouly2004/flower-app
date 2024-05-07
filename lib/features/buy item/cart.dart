@@ -87,11 +87,10 @@ int count=1;
                 itemCount: cart.length,
                 itemBuilder: (context, index) {
                 return Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(8.0),
                   child: Stack(
                     alignment: Alignment.topRight,
                     children: [
-
                       Container(
                         width: MediaQuery.sizeOf(context).width * 0.9,
                         height: 200,
@@ -105,44 +104,42 @@ int count=1;
                               Colors.white.withOpacity(0.9),
                             ],
                           ),
-                        ),child:
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height:MediaQuery.sizeOf(context).height * 0.02,),
+                        ),
 
-                          Text("${cart[index].textImage}",
-                            style: TextStyle(fontSize: 20,
-                              fontFamily: "Pangolin",
-                              fontWeight: FontWeight.w400,),
-                            textAlign: TextAlign.center,),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
 
-                          SizedBox(height:MediaQuery.sizeOf(context).height * 0.02),
+                            SizedBox(height:MediaQuery.sizeOf(context).height * 0.02,),
 
-                          Text("${cart[index].des}.LE",
-                            style: TextStyle(fontSize: 15,color: Color(0xff3C312F),
-                              fontWeight: FontWeight.w400,),
-                            textAlign: TextAlign.start,),
+                            Text("${cart[index].textImage}",
+                              style: TextStyle(fontSize: 20,
+                                fontFamily: "Pangolin",
+                                fontWeight: FontWeight.w400,),
+                              textAlign: TextAlign.center,),
 
-                          SizedBox(height:MediaQuery.sizeOf(context).height * 0.02),
+                            SizedBox(height:MediaQuery.sizeOf(context).height * 0.02),
 
-                          Text("price :  ${cart[index].price.round()}.LE",
-                            style: TextStyle(
-                              color: Color(0xffFF7474),
-                              fontSize: 20,
-                              fontWeight: FontWeight.w400,),
-                            textAlign: TextAlign.center,),
+                            Text("${cart[index].des}.LE",
+                              style: TextStyle(fontSize: 15,color: Color(0xff3C312F),
+                                fontWeight: FontWeight.w400,),
+                              textAlign: TextAlign.start,),
+
+                            SizedBox(height:MediaQuery.sizeOf(context).height * 0.02),
+
+                            Text("price :  ${cart[index].price.round()}.LE",
+                              style: TextStyle(
+                                color: Color(0xffFF7474),
+                                fontSize: 20,
+                                fontWeight: FontWeight.w400,),
+                              textAlign: TextAlign.center,),
 
 
 
-
-                        ],
+                          ],
+                        ),
                       ),
-
-                      ),
-
-
 
                       GestureDetector(
                         onTap: () {
@@ -250,7 +247,10 @@ int count=1;
                 );
               },
               ),
-            )
+            ),
+
+
+
 
 
           ],

@@ -1,4 +1,5 @@
 
+import 'package:flower/features/milkcheck/milksheck.dart';
 import 'package:flutter/material.dart';
 
 class SearchHomeWidget extends StatelessWidget {
@@ -11,7 +12,9 @@ class SearchHomeWidget extends StatelessWidget {
         Expanded(
           child: InkWell(
             onTap: () {
-
+         Navigator.push(context, MaterialPageRoute(builder:  (context) {
+           return lstmilksheck();
+         },));
             },
             child: Container(
               padding: const EdgeInsets.all(6),
@@ -33,7 +36,9 @@ class SearchHomeWidget extends StatelessWidget {
 
         InkWell(
           onTap:  () {
-
+            Navigator.push(context, MaterialPageRoute(builder:  (context) {
+              return lstmilksheck();
+            },));
           },
           child: Container(
             padding: EdgeInsets.all(5),
