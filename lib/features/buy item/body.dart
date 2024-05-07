@@ -1,5 +1,7 @@
 import 'package:flower/core/App%20colors.dart';
-import 'package:flower/core/App%20texts.dart';
+import 'package:flower/features/buy%20item/Done%20cart.dart';
+import 'package:flower/features/milkcheck/model/model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,6 +12,7 @@ class buybody extends StatefulWidget {
     required this.price,
     required this.image,
     required this.description,
+        required this.index
   }
   );
 
@@ -17,6 +20,7 @@ class buybody extends StatefulWidget {
   final String image;
   double price;
   final String description;
+  final int index;
 
   @override
   State<buybody> createState() => _buybodyState();
@@ -48,17 +52,20 @@ class _buybodyState extends State<buybody> {
       Padding(
         padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.03),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children:[
 
 
-              Text(widget.title,style: TextStyle(
-                fontWeight: FontWeight.w400,
-                fontFamily: "Pangolin",
-                color: Colors.brown,
-                fontSize: MediaQuery.sizeOf(context).height * 0.03,
-              )),
+              Expanded(
+                child: Text(widget.title,style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontFamily: "Pangolin",
+                  color: Colors.brown,
+                  fontSize: MediaQuery.sizeOf(context).height * 0.03,
+                )),
+              ),
 
-                const Spacer(),
+
 
                 Text(
                   "${widget.price.toString()} LE",
@@ -126,7 +133,6 @@ class _buybodyState extends State<buybody> {
                  ),child: Row(
                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                  children: [
-
                    GestureDetector(
                      onTap: () {
                        minusCount();
@@ -217,23 +223,34 @@ class _buybodyState extends State<buybody> {
           ),
         ),
 
-        Container(
-      width:MediaQuery.sizeOf(context).width * 0.9 ,
-      padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.03),
-      decoration: BoxDecoration(
-        color: AppColors.brown,
-        borderRadius: BorderRadius.all(Radius.circular(MediaQuery.sizeOf(context).width * 0.03,),
+        InkWell(
+          onTap: () {
+
+            cart.add(milkshakes[widget.index]);
+            showModalBottomSheet(context: context, builder: (c) {
+              return   BottomSheetWidget();
+            } );
+
+          },
+          child: Container(
+          width:MediaQuery.sizeOf(context).width * 0.9 ,
+            padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.03),
+          decoration: BoxDecoration(
+             color: AppColors.brown,
+          borderRadius: BorderRadius.all(Radius.circular(MediaQuery.sizeOf(context).width * 0.03,),
+            ),
+           ), child: Center(
+           child: Text("Add to card",
+           style:  TextStyle(fontWeight: FontWeight.w700,
+            color: AppColors.white,
+            fontSize: MediaQuery.sizeOf(context).height * 0.023,),
+
+              ),
+              ),
+
+              ),
         ),
-      ), child: Center(
-         child: Text("Add to card",
-        style:  TextStyle(fontWeight: FontWeight.w700,
-          color: AppColors.white,
-          fontSize: MediaQuery.sizeOf(context).height * 0.023,),
 
-    ),
-    ),
-
-    )
 
 
 

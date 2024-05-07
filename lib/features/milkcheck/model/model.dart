@@ -8,6 +8,8 @@ class milkshake {
   String des;
   bool fav;
   double price;
+  bool addCart;
+  int count;
 
   milkshake({
     required this.image,
@@ -15,6 +17,8 @@ class milkshake {
      required this.des,
     this.fav=false,
     required this.price,
+    this.count = 0,
+    this.addCart = false,
   }
       );
 }
@@ -57,3 +61,8 @@ List<milkshake> milkshakes=[
 
 
 ];
+
+
+List<milkshake> cart = [
+
+] ;

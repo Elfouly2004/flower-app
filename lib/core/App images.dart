@@ -11,6 +11,7 @@ class AppImages{
   static const String milksheck = "assets/images/milksheck.png";
   static const String seeall = "assets/images/see all.png";
   static const String dount = "assets/images/image 9.png";
+  static const String vectr = "assets/images/Vector (1).png";
 
 
 }

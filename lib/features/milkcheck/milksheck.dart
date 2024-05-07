@@ -1,13 +1,19 @@
 
 import 'package:flower/core/App%20colors.dart';
-import 'package:flower/features/home/buy%20item/body.dart';
-import 'package:flower/features/home/buy%20item/buy.dart';
+import 'package:flower/features/buy%20item/buy.dart';
+
 import 'package:flower/features/home/widgets/home%20body.dart';
 import 'package:flower/features/milkcheck/model/model.dart';
 import 'package:flutter/material.dart';
-class lstmilksheck extends StatelessWidget {
+class lstmilksheck extends StatefulWidget {
   const lstmilksheck({super.key});
 
+  @override
+  State<lstmilksheck> createState() => _lstmilksheckState();
+}
+
+class _lstmilksheckState extends State<lstmilksheck> {
+  List<milkshake>searchlist=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +61,16 @@ class lstmilksheck extends StatelessWidget {
                 width: 285,
                 height: 44,
                 child: TextFormField(
-                  style: TextStyle(color: Colors.white),
+                  onChanged: (value) {
+
+
+                      setState(() {
+                        searchlist = milkshakes.where((element) => element. textImage.toLowerCase().contains(value.toLowerCase())).toList();
+
+                      });
+
+                  },
+                  style: TextStyle(color: Colors.black),
                   decoration: InputDecoration(
                     fillColor: Colors.white,
                     filled: true,
@@ -90,11 +105,13 @@ class lstmilksheck extends StatelessWidget {
           Expanded(
               flex:1 ,
               child: Padding(
-                padding: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(00),
                 child: ListView.builder(
-                  itemCount:milkshakes.length,
+                  itemCount: searchlist.isEmpty ?  milkshakes.length :searchlist.length,
                   itemBuilder: (context, index) {
+
                     return Padding(
+
                       padding: const EdgeInsets.all(20),
                       child: Stack(
                         alignment: Alignment.bottomRight,
@@ -103,6 +120,7 @@ class lstmilksheck extends StatelessWidget {
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (context) {
                             return buyitem(
+                               index: index,
                                 title: milkshakes[index].textImage,
                                 price: milkshakes[index].price,
                                 image: milkshakes[index].image,
@@ -132,7 +150,7 @@ class lstmilksheck extends StatelessWidget {
 
                                    SizedBox(height: 10,),
 
-                                     Text("${milkshakes[index].textImage}",
+                                     Text(searchlist.isEmpty ?  milkshakes[index].textImage: searchlist[index].textImage,
                                        style: TextStyle(fontSize: 20,
                                          fontFamily: "Pangolin",
                                          fontWeight: FontWeight.w400,),
@@ -168,9 +186,9 @@ class lstmilksheck extends StatelessWidget {
                                 height:200 ,
                               ),
                              top:0 ,
-                            bottom: 40,
-                            left: 200,
-                            right: 35,
+                            bottom: MediaQuery.sizeOf(context).height * 0.03,
+                            // left: 200,
+                            right: MediaQuery.sizeOf(context).height * 0.0,
                           ),
 
 

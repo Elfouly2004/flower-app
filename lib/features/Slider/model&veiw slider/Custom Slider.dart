@@ -24,7 +24,7 @@ class _SliderpageState extends State<Sliderpage> {
       body: Column(
         children: [
           Expanded(
-            flex: 1,
+            flex: 7,
             child: PageView.builder(
               itemCount: sliders.length,
               controller:_controller,
@@ -124,14 +124,16 @@ class _SliderpageState extends State<Sliderpage> {
             ),
           ),
 
-          SmoothPageIndicator(
-              controller:_controller ,  // PageController
-              count:  3,
-              textDirection: TextDirection.ltr,
-              effect:ExpandingDotsEffect(
-                activeDotColor: Colors.brown,
-              ), // your preferred effect
-              onDotClicked: (index){}
+          Expanded(
+            child: SmoothPageIndicator(
+                controller:_controller ,  // PageController
+                count:  3,
+                textDirection: TextDirection.ltr,
+                effect:ExpandingDotsEffect(
+                  activeDotColor: Colors.brown,
+                ), // your preferred effect
+                onDotClicked: (index){}
+            ),
           )
 
 

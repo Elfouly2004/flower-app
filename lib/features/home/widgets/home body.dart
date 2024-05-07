@@ -22,7 +22,7 @@ class _homebodyState extends State<homebody> {
     return Scaffold(
 
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
 
@@ -57,7 +57,6 @@ class _homebodyState extends State<homebody> {
 
             SeeMoreWidget(),
 
-
             Discoverwidget(),
 
 
@@ -70,8 +69,7 @@ class _homebodyState extends State<homebody> {
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
+
                 ),// padding around the grid
                 itemCount: 4,
                 itemBuilder: (context, index) {

@@ -18,7 +18,7 @@ class _BestsellingState extends State<Bestselling> {
     return Scaffold(
 
       body: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.all(10),
         child: Column(
           children: [
 
@@ -56,15 +56,14 @@ class _BestsellingState extends State<Bestselling> {
             ],
             ),
 
-            SizedBox(height: 50,),
+            SizedBox(height: 20,),
 
             Expanded(
-              flex: 1,
               child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 0,
+                  crossAxisSpacing: 0,
                 ),// padding around the grid
                 itemCount: sweets.length,
                 itemBuilder: (context, index) {
