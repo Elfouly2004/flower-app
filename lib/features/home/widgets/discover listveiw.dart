@@ -10,12 +10,13 @@ class Discoverwidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
+      flex: 1,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount:juices.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: GestureDetector(
               onTap: () {
                 if(index==0){
@@ -26,9 +27,10 @@ class Discoverwidget extends StatelessWidget {
               },
       
               child: Column(
+                mainAxisAlignment:  MainAxisAlignment.center,
                 children: [
                   Container(
-                    height: MediaQuery.sizeOf(context).height * 0.1,
+                    height: MediaQuery.sizeOf(context).height * 0.09,
                     width: MediaQuery.sizeOf(context).width * 0.2,
                     decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -42,12 +44,8 @@ class Discoverwidget extends StatelessWidget {
                         color: AppColors.rose,
                         shape: BoxShape.circle
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-
-                      child: Image.asset("${juices[index].image}",
-                        height: MediaQuery.sizeOf(context).height * 0.09,),
-                    ),
+                    child: Image.asset("${juices[index].image}",
+                      height: MediaQuery.sizeOf(context).height * 0.08,),
 
                   ),
                   Text("${juices[index].textImage}",

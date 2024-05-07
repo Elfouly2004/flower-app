@@ -1,4 +1,5 @@
 import 'package:flower/core/App%20images.dart';
+import 'package:flower/core/App%20texts.dart';
 import 'package:flower/features/home/widgets/Search%20home.dart';
 import 'package:flower/features/home/widgets/bestselling%20stack.dart';
 import 'package:flower/features/home/widgets/discover%20listveiw.dart';
@@ -54,13 +55,16 @@ class _homebodyState extends State<homebody> {
 
             SearchHomeWidget(),
 
+            SizedBox(height: MediaQuery.sizeOf(context).height * 0.02 ,),
 
-            SeeMoreWidget(),
+
+            SeeMoreWidget(title: AppTexts.Discover,),
 
             Discoverwidget(),
 
 
-            SeeMoreWidget(),
+
+            SeeMoreWidget(title: AppTexts.Seeall,),
 
 
 

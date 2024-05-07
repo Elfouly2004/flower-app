@@ -2,7 +2,7 @@
 import 'package:flower/core/App%20images.dart';
 import 'package:flower/core/App%20texts.dart';
 
-class milkshake {
+class Sweets {
   String image;
   String textImage;
   String des;
@@ -11,7 +11,7 @@ class milkshake {
   bool addCart;
   int count;
 
-  milkshake({
+  Sweets({
     required this.image,
     required this.textImage,
      required this.des,
@@ -24,9 +24,9 @@ class milkshake {
 }
 
 
-List<milkshake> milkshakes=[
+List<Sweets> milkshakes=[
 
-  milkshake(
+  Sweets(
     image:milkshks.oreo,
     textImage: shks.oreo,
     des:shks.des,
@@ -34,7 +34,7 @@ List<milkshake> milkshakes=[
   ),
 
 
-  milkshake(
+  Sweets(
     image:milkshks.choclate,
     textImage:  shks.choclate,
     des:shks.des,
@@ -42,7 +42,7 @@ List<milkshake> milkshakes=[
   ),
 
 
-  milkshake(
+  Sweets(
     image:milkshks.vanilla,
     textImage:  shks.vanilla,
     des:shks.des,
@@ -50,7 +50,7 @@ List<milkshake> milkshakes=[
   ),
 
 
-  milkshake(
+  Sweets(
     image:milkshks.mango,
     textImage: shks.mango,
     des:shks.des,
@@ -62,7 +62,100 @@ List<milkshake> milkshakes=[
 
 ];
 
+List<Sweets> sweets=[
 
-List<milkshake> cart = [
+  Sweets(
+    image:AppImages.dount,
+    textImage: AppTexts.Dounts,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.Cake,
+    textImage: AppTexts.Cake,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.dount,
+    textImage: AppTexts.Dounts,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.Cake,
+    textImage: AppTexts.Cake,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.dount,
+    textImage: AppTexts.Dounts,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.Cake,
+    textImage: AppTexts.Cake,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.dount,
+    textImage: AppTexts.Dounts,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.Cake,
+    textImage: AppTexts.Cake,
+    price: 45,
+    des:shks.des,
+
+  ),
+  Sweets(
+    image:AppImages.dount,
+    textImage: AppTexts.Dounts,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+  Sweets(
+    image:AppImages.Cake,
+    textImage: AppTexts.Cake,
+    price: 45,
+    des:shks.des,
+
+  ),
+
+
+
+];
+
+
+List<Sweets> cart = [
 
 ] ;

@@ -13,6 +13,8 @@ class AppTexts {
 
   static const String Bestselling = "Best selling";
 
+  static const String Seeall = "See All";
+
   static const String cart = "cart";
 
 }

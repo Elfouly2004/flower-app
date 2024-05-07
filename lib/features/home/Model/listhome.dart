@@ -40,78 +40,7 @@ List<juicemodel> juices=[
 ];
 
 
-List<dounts_cake> sweets=[
 
-  dounts_cake(
-    image:AppImages.dount,
-    textImage: AppTexts.Dounts,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.Cake,
-    textImage: AppTexts.Cake,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.dount,
-    textImage: AppTexts.Dounts,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.Cake,
-    textImage: AppTexts.Cake,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.dount,
-    textImage: AppTexts.Dounts,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.Cake,
-    textImage: AppTexts.Cake,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.dount,
-    textImage: AppTexts.Dounts,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.Cake,
-    textImage: AppTexts.Cake,
-    price: 45,
-  ),
-  dounts_cake(
-    image:AppImages.dount,
-    textImage: AppTexts.Dounts,
-    price: 45,
-  ),
-
-
-  dounts_cake(
-    image:AppImages.Cake,
-    textImage: AppTexts.Cake,
-    price: 45,
-  ),
-
-
-
-];
 
 
 

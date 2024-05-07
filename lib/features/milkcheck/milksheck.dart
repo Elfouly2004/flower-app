@@ -13,7 +13,7 @@ class lstmilksheck extends StatefulWidget {
 }
 
 class _lstmilksheckState extends State<lstmilksheck> {
-  List<milkshake>searchlist=[];
+  List<Sweets>searchlist=[];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
