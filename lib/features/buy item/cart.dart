@@ -7,7 +7,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 class Cartpage extends StatefulWidget {
-  const Cartpage({super.key});
+  const Cartpage({super.key,});
 
   @override
   State<Cartpage> createState() => _CartpageState();
@@ -17,27 +17,21 @@ class _CartpageState extends State<Cartpage> {
   @override
   Widget build(BuildContext context) {
 
-int count=1;
-    double totalPrice = 0;
-    int countSelectedItem = 0;
 
-    double total() {
-      setState(() {
-        for (int i = 0; i < cart.length; i++) {
-          totalPrice += cart[i].count * cart[i].price;
-        }
-      });
-      return totalPrice;
-    }
-
-    int selectedItem() {
-      setState(() {
-        for (int i = 0; i < cart.length; i++) {
-          countSelectedItem += cart[i].count;
-        }
-      });
-      return countSelectedItem;
-    }
+double getTotalPrice() {
+  double totalPrice = 0;
+  for (Sweets item in cart) {
+    totalPrice += item.price * item.count;
+  }
+  return totalPrice;
+}
+int getTotalSelectedItemsCount(){
+  int count=0;
+  for (Sweets item in cart) {
+    count+=item.count;
+  }
+  return count;
+ }
 
     return Scaffold(
       
@@ -135,6 +129,23 @@ int count=1;
                                 fontWeight: FontWeight.w400,),
                               textAlign: TextAlign.center,),
 
+                            Row(
+                              children: [
+                                Text("Total :",
+                                  style: TextStyle(
+                                    color: Color(0xffFF7474),
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w400,),
+                                  textAlign: TextAlign.center,),
+                                Text("  ${cart[index].count *cart[index].price}.LE",
+                                  style: TextStyle(
+                                    color:Colors.brown,
+                                    fontSize: 17,
+                                    fontWeight: FontWeight.w400,),
+                                  textAlign: TextAlign.center,),
+                              ],
+                            ),
+
 
 
                           ],
@@ -143,8 +154,13 @@ int count=1;
 
                       GestureDetector(
                         onTap: () {
+                          setState(() {
+                            if (index >= 0 && index < cart.length) {
+                              cart.removeAt(index);
+                            }
+                            });
 
-                        },
+                           },
                         child: Container(
                           width: 60,
                           height: 30,
@@ -156,12 +172,10 @@ int count=1;
 
                             ),
                           ),
-                          child: IconButton(
-                            onPressed: () {  },
-                            icon: Icon(Icons.remove),
+                          child: Center(child: Icon(Icons.close)),
                           ),
                         ),
-                      ),
+
 
 
                       Positioned(
@@ -199,7 +213,13 @@ int count=1;
                             children: [
                               GestureDetector(
                                 onTap: () {
+                               if (cart[index].count>0){
+                                 cart[index].count--;
+                               }
 
+                               setState(() {
+
+                               });
                                 },
                                 child: Icon(
                                   Icons.do_disturb_on_rounded,
@@ -210,7 +230,7 @@ int count=1;
                               SizedBox(width: 20,),
 
                               Text(
-                                "0${count.toString()}",
+                                "0${cart[index].count}",
                                 style: TextStyle(
                                   fontSize: MediaQuery.sizeOf(context).height * 0.025,
                                   fontWeight: FontWeight.w500,
@@ -223,6 +243,10 @@ int count=1;
 
                               GestureDetector(
                                 onTap: () {
+                                  setState(() {
+                                    cart[index].count++;
+                                  });
+
 
                                 },
                                 child: Icon(
@@ -246,6 +270,73 @@ int count=1;
                   ),
                 );
               },
+              ),
+            ),
+
+
+
+
+            Padding(
+              padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.05),
+              child: Container(
+                padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.04),
+                decoration: BoxDecoration(
+                  color: AppColors.rose,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(
+                      MediaQuery.sizeOf(context).width * 0.03,
+                    ),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Text(
+                      "Selected items (${getTotalSelectedItemsCount()})",
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.brown,
+                        fontSize: MediaQuery.sizeOf(context).height * 0.02,
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      "Total : ${getTotalPrice()} LE",
+                      style:  TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: AppColors.brown,
+                        fontSize: MediaQuery.sizeOf(context).height * 0.02,
+                      ),
+
+                    ),
+                  ],
+                ),
+
+
+              ),
+            ),
+
+            InkWell(
+              onTap: () {
+
+
+
+              },
+              child: Container(
+                width:MediaQuery.sizeOf(context).width * 0.9 ,
+                padding: EdgeInsets.all(MediaQuery.sizeOf(context).width * 0.03),
+                decoration: BoxDecoration(
+                  color: AppColors.brown,
+                  borderRadius: BorderRadius.all(Radius.circular(MediaQuery.sizeOf(context).width * 0.03,),
+                  ),
+                ), child: Center(
+                child: Text("Add to card",
+                  style:  TextStyle(fontWeight: FontWeight.w700,
+                    color: AppColors.white,
+                    fontSize: MediaQuery.sizeOf(context).height * 0.023,),
+
+                ),
+              ),
+
               ),
             ),
 

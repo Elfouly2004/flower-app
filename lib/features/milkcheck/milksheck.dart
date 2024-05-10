@@ -121,10 +121,8 @@ class _lstmilksheckState extends State<lstmilksheck> {
                               Navigator.push(context, MaterialPageRoute(builder: (context) {
                             return buyitem(
                                index: index,
-                                title: milkshakes[index].textImage,
-                                price: milkshakes[index].price,
-                                image: milkshakes[index].image,
-                                description: milkshakes[index].des);
+
+                            );
                             },));
                             },
                             child: Container(

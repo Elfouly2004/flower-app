@@ -6,20 +6,9 @@ import 'package:flutter/material.dart';
 
 
 class buybody extends StatefulWidget {
-  buybody(
-      {
-    required this.title,
-    required this.price,
-    required this.image,
-    required this.description,
-        required this.index
-  }
-  );
+  buybody({required this.index});
 
-  final String title;
-  final String image;
-  double price;
-  final String description;
+
   final int index;
 
   @override
@@ -27,22 +16,9 @@ class buybody extends StatefulWidget {
 }
 
 class _buybodyState extends State<buybody> {
-  int count = 1;
 
-  void addCount() {
-    setState(() {
-      count += 1;
-    });
-  }
 
-  void minusCount() {
-    setState(() {
-      if (count <= 1) {
-      } else {
-        count -= 1;
-      }
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +33,7 @@ class _buybodyState extends State<buybody> {
 
 
               Expanded(
-                child: Text(widget.title,style: TextStyle(
+                child: Text("${milkshakes[widget.index].textImage}",style: TextStyle(
                   fontWeight: FontWeight.w400,
                   fontFamily: "Pangolin",
                   color: Colors.brown,
@@ -68,7 +44,7 @@ class _buybodyState extends State<buybody> {
 
 
                 Text(
-                  "${widget.price.toString()} LE",
+                  "${milkshakes[widget.index].price}} LE",
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
                       color: Colors.brown,
@@ -135,7 +111,12 @@ class _buybodyState extends State<buybody> {
                  children: [
                    GestureDetector(
                      onTap: () {
-                       minusCount();
+                      setState(() {
+                        if (milkshakes[widget.index].count>0){
+                          milkshakes[widget.index].count--;
+                        }
+
+                      });
                      },
                      child: Icon(
                        Icons.do_disturb_on_rounded,
@@ -145,7 +126,7 @@ class _buybodyState extends State<buybody> {
                    ),
                    const Spacer(),
                    Text(
-                     count.toString(),
+                     "${milkshakes[widget.index].count}",
                      style: TextStyle(
                          fontSize: MediaQuery.sizeOf(context).height * 0.025,
                          fontWeight: FontWeight.w500,
@@ -153,10 +134,14 @@ class _buybodyState extends State<buybody> {
 
                      ),
                    ),
+
                    const Spacer(),
+
                    GestureDetector(
                      onTap: () {
-                       addCount();
+                      setState(() {
+                        milkshakes[widget.index].count++;
+                      });
                      },
                      child: Icon(
                        Icons.add_circle_outlined,
@@ -199,7 +184,7 @@ class _buybodyState extends State<buybody> {
             child: Row(
               children: [
                 Text(
-                  "Selected items ($count)",
+                  "Selected items (${milkshakes[widget.index].count})",
                   style: TextStyle(
                       fontWeight: FontWeight.w500,
                       color: AppColors.brown,
@@ -208,7 +193,7 @@ class _buybodyState extends State<buybody> {
                 ),
                 const Spacer(),
                 Text(
-                  "Total : ${count * widget.price} LE",
+                  "Total : ${milkshakes[widget.index].count* sweets[widget.index].price} LE",
                   style:  TextStyle(
                       fontWeight: FontWeight.w500,
                       color: AppColors.brown,
@@ -227,6 +212,9 @@ class _buybodyState extends State<buybody> {
           onTap: () {
 
             cart.add(milkshakes[widget.index]);
+
+
+
             showModalBottomSheet(context: context, builder: (c) {
               return   BottomSheetWidget();
             } );

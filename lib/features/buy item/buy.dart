@@ -1,25 +1,14 @@
 
 import 'package:flower/features/buy%20item/body.dart';
+import 'package:flower/features/milkcheck/model/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class buyitem extends StatelessWidget {
 
   buyitem(
-      {
-        required this.title,
-        required this.price,
-        required this.image,
-        required this.description,
-        required this.index
+      {required this.index});
 
-      }
-      );
-
-  final String title;
-  final String image;
-  double price;
-  final String description;
   final int index;
 
 
@@ -37,7 +26,7 @@ backgroundColor: Color(0xffF7CCC6),
             expandedHeight: 250.0,
             flexibleSpace: FlexibleSpaceBar(
               title: Text('', textScaleFactor: 1),
-               background: Image(image: AssetImage(image)),
+               background: Image(image: AssetImage(milkshakes[index].image)),
 
 
             ),
@@ -58,7 +47,7 @@ backgroundColor: Color(0xffF7CCC6),
               ),
               child: Column(
                 children: [
-                  buybody(title: title, price: price, image: image, description: description,index: index,)
+                  buybody(index: index,)
                 ],
               ),
 
